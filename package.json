@@ -19,6 +19,7 @@
     "react-skylight": "^0.5.1",
     "react-table": "^6.10.3",
     "redux": "^4.0.4",
+    "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0"
   },
   "scripts": {

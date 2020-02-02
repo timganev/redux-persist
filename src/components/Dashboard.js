@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { list, album } from "../store/actions/index";
 import { SERVER_URL } from "../constants";
 import Album from "./Album";
 import CurrentAlbum from "./CurrentAlbum";
-import { Pagination, Icon } from "react-materialize";
+import { Pagination } from "react-materialize";
 
 export default function Dashboard() {
   const listReducer = useSelector(state => state.listReducer);
@@ -31,22 +30,32 @@ export default function Dashboard() {
     }
   }, []);
 
-  const handleSelect = evt => {};
-
   return (
-    <div className="container">
-      <h2>Favorites</h2>
+    <div id="favorites" className="container">
+      <h4 className="white-text">Favorites</h4>
       <div className="row">{favorites}</div>
-      <h2>Album {page}</h2>
+      <h4 className="white-text">Album {page}</h4>
       <Pagination
         activePage={1}
-        items={10}
-        maxButtons={10}
+        items={100}
+        maxButtons={15}
         onSelect={e => setPage(e)}
       />
       <div className="row">
         <CurrentAlbum albumId={page} />
       </div>
+      <Pagination
+        activePage={1}
+        items={100}
+        maxButtons={15}
+        onSelect={e => setPage(e)}
+      />
+      <p className="container  ">
+        You can find me on{" "}
+        <a href="https://www.linkedin.com/in/tihomirganev" title="My linkedin">
+          linkedin
+        </a>
+      </p>
     </div>
   );
 }
